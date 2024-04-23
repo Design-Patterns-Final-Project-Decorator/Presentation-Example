@@ -6,6 +6,6 @@ public class ArmorColor extends ArmorDecoration {
 
     @Override
     public void render() {
-        
+
     }
 }
