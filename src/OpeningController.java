@@ -13,8 +13,15 @@ public class OpeningController {
     @FXML
     private VBox statsWindow;
 
+    private ArmorView view;
+
     public OpeningController() {
         // constructor needs
+        view = new PlatemailView();
+    }
+
+    private void updateDisplay() {
+        view.render();
     }
 
     @FXML
