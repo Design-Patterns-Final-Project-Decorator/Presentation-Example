@@ -1,8 +1,11 @@
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 
 public class OpeningController {
+    public Button resetButton;
     @FXML
     private BorderPane backgroundPane;
     @FXML
@@ -38,5 +41,10 @@ public class OpeningController {
                         true,
                         true
                 ))));
+    }
+
+    @FXML
+    private void reset(ActionEvent actionEvent) {
+        view = new PlatemailView();
     }
 }
