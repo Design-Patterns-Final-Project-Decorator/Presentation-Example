@@ -19,16 +19,12 @@ public class OpeningController {
     private ArmorView view;
 
     public OpeningController() {
-        // constructor needs
-        view = new PlatemailView();
-    }
-
-    private void updateDisplay() {
-        equipmentWindow = view.render();
+        this.view = new PlatemailView();
     }
 
     @FXML
     public void initialize() {
+        // add mystic tree background O_o
         backgroundPane.setBackground(new Background(new BackgroundImage(
                 new Image("images/boarderBackground.jpg"),
                 BackgroundRepeat.NO_REPEAT,
@@ -42,11 +38,27 @@ public class OpeningController {
                         true,
                         true
                 ))));
+
+        // making the buttons
+        Button b1 = new Button("Add Armor Age");
+        b1.setOnAction(event -> updateDisplay(new ArmorAge(view)));
+
+        Button b2 = new Button("Add Armor Color");
+        b2.setOnAction(event -> updateDisplay(new ArmorColor(view)));
+
+        Button b3 = new Button("Add Armor Heraldry");
+        b3.setOnAction(event -> updateDisplay(new ArmorHeraldry(view)));
+
+        equipmentWindow.getChildren().addAll(b1, b2, b3);
     }
 
     @FXML
     private void reset(ActionEvent actionEvent) {
-        view = new PlatemailView();
-        updateDisplay();
+        updateDisplay(new PlatemailView());
+    }
+
+    private void updateDisplay(ArmorView newAV) {
+        this.view = newAV;
+        characterWindow = view.render();
     }
 }
