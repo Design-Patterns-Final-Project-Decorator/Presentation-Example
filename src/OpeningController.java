@@ -5,7 +5,8 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 
 public class OpeningController {
-    public Button resetButton;
+    @FXML
+    private Button resetButton;
     @FXML
     private BorderPane backgroundPane;
     @FXML
@@ -23,7 +24,7 @@ public class OpeningController {
     }
 
     private void updateDisplay() {
-        view.render();
+        equipmentWindow = view.render();
     }
 
     @FXML
@@ -46,5 +47,6 @@ public class OpeningController {
     @FXML
     private void reset(ActionEvent actionEvent) {
         view = new PlatemailView();
+        updateDisplay();
     }
 }
