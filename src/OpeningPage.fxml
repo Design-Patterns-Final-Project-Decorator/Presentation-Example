@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="backgroundPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400.0" minWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="OpeningController">
+<BorderPane fx:id="backgroundPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400.0" minWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="OpeningController">
    <right>
       <VBox fx:id="equipmentWindow" minWidth="150.0" style="-fx-background-color: Grey;" BorderPane.alignment="CENTER" />
    </right>
@@ -27,7 +27,15 @@
             </Pane>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="resetButton" mnemonicParsing="false" onAction="#reset" text="Reset" />
+                  <Button mnemonicParsing="false" onAction="#reset" text="Reset">
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin></Button>
+                  <Button mnemonicParsing="false" onAction="#undo" text="Undo">
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </Button>
                </children>
             </HBox>
          </children>

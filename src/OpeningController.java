@@ -6,8 +6,6 @@ import javafx.scene.layout.*;
 
 public class OpeningController {
     @FXML
-    private Button resetButton;
-    @FXML
     private BorderPane backgroundPane;
     @FXML
     private VBox equipmentWindow;
@@ -57,8 +55,15 @@ public class OpeningController {
         updateDisplay(new PlatemailView());
     }
 
+    @FXML
+    private void undo(ActionEvent actionEvent) {
+        updateDisplay(view.undo());
+    }
+
     private void updateDisplay(ArmorView newAV) {
-        this.view = newAV;
-        characterWindow = view.render();
+        if (newAV != null) {
+            this.view = newAV;
+            characterWindow = view.render();
+        }
     }
 }
